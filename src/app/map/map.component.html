@@ -1,0 +1,29 @@
+<div class="map-container">
+  <div class="map-frame">
+    <div id="map"></div>
+  </div>
+
+  <div class="input">
+    <div class="input2">
+      <h5>Latitide e Longitude do destino</h5>
+      <textarea cols="30" rows="10" [(ngModel)]="destino"></textarea>
+    </div>
+
+    <div class="input2">
+      <h5>Latitide do percurso</h5>
+      <textarea cols="30" rows="10" [(ngModel)]="dataLat"></textarea>
+    </div>
+
+    <div class="input2">
+      <h5>Longitude do percurso</h5>
+      <textarea cols="30" rows="10" [(ngModel)]="dataLong"></textarea>
+    </div>
+
+    <div class="input2">
+      <h5>Horário do percurso</h5>
+      <textarea cols="30" rows="10" [(ngModel)]="dataHorario"></textarea>
+    </div>
+
+    <button (click)="generate()">gerar mapa</button>
+  </div>
+</div>
