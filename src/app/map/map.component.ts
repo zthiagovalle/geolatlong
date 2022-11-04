@@ -28,7 +28,7 @@ export class MapComponent implements AfterViewInit {
   public dataHorario: string = '';
   public destino: string = '';
 
-  constructor() {}
+  constructor() { }
 
   private initMap(): void {
     this.map = L.map('map', {
@@ -67,8 +67,14 @@ export class MapComponent implements AfterViewInit {
       const arrayLong = this.dataLong.split('\n');
 
       for (let index = 0; index < arrayLong.length; index++) {
-        const lat = arrayLat[index];
-        const lon = arrayLong[index];
+        let lat = arrayLat[index];
+        if (lat.includes(',')) {
+          lat = lat.replace(',', '.');
+        }
+        let lon = arrayLong[index];
+        if (lon.includes(',')) {
+          lon = lon.replace(',', '.');
+        }
         const marker = L.marker([Number(lat), Number(lon)]);
         marker.bindPopup(
           this.makeRoutePopup(index, lat, lon, arrayHorarios[index])
